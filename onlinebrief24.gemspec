@@ -21,4 +21,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'net-sftp', '~> 2.0'
   gem.add_development_dependency "rspec", '~> 2.0'
   gem.add_development_dependency "rake"
+  gem.add_development_dependency "guard"
+  gem.add_development_dependency "guard-rspec"
+  gem.add_development_dependency "rb-fsevent"
 end
