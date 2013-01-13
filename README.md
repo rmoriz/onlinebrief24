@@ -2,26 +2,28 @@
 
 [![Build Status](https://travis-ci.org/rmoriz/onlinebrief24.png)](https://travis-ci.org/rmoriz/onlinebrief24)
 
+This gem is only interesting for users that use the German letter outbound service Onlinebrief24.de. This gem wraps the required workflow to upload a PDF to Onlinebrief24's servers. Onlinebrief24 then prints and mails the letters via snail mail. As this service is only available to German customers, the following documentation is available in German language only.
 
-TODO: Write a gem description
+## 
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Über Bundler in einem Gemfile:
 
     gem 'onlinebrief24'
 
-And then execute:
+und dann:
 
     $ bundle
 
-Or install it yourself as:
+oder global mit:
 
     $ gem install onlinebrief24
 
-## Usage
+## Beispiele
 
-TODO: Write usage instructions here
+TODO
+
 
 ## Contributing
 
@@ -30,3 +32,10 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+## Copyright
+
+Licensed under the MIT license.
+
+Copyright (C) 2013 Moriz GmbH, https://moriz.de/
