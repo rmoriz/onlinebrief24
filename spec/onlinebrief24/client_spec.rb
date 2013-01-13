@@ -4,7 +4,7 @@ describe Onlinebrief24::Client do
   let(:params) {
     {
       :login    => 'user@example.com',
-      :password => 'k1mble',
+      :password => 'fefe_isst_gerne_schweinshaxn',
     }
   }
 
@@ -27,7 +27,8 @@ describe Onlinebrief24::Client do
 
   describe '#upload' do
     subject { described_class.new params }
-    let(:letter) { Onlinebrief24::Letter.new letter_filename, letter_options }
+    let(:local_path) { File.expand_path('../../example_files/example.pdf', __FILE__) }
+    let(:letter) { Onlinebrief24::Letter.new(local_path, letter_options) }
     let(:letter_options) { {} }
 
     describe 'without a letter instance' do
@@ -36,13 +37,12 @@ describe Onlinebrief24::Client do
       it { expect{ subject.upload! letter}.to raise_error ArgumentError }
     end
 
-    describe 'with a valid letter' do
-      let(:letter_filename) { File.expand_path('../../example_files/example.pdf', __FILE__) }
+    describe 'with a valid letter instance' do
       let(:letter_options) { { :duplex => true, :color => true, :cost_center => 'eris' } }
 
       it 'should upload the letter with the correct remote filename' do
         sftp = double('sftp')
-        sftp.should_receive(:upload!).with(letter_filename, '/upload/api/' + letter.remote_filename).once
+        sftp.should_receive(:upload!).with(local_path, '/upload/api/' + letter.remote_filename).once
 
         Net::SFTP.should_receive(:start).with('api.onlinebrief24.de', params[:login], :password => params[:password]) { sftp }
 
@@ -50,11 +50,27 @@ describe Onlinebrief24::Client do
       end
     end
 
-    describe 'with an invalid argument' do
-      let(:letter) { 'a string which is invalid' }
+    describe 'with a file handle' do
+      let(:filehandle) { File.open(local_path) }
 
       it 'should upload the letter with the correct remote filename' do
-        expect { subject.upload!(letter) }.to raise_error(ArgumentError)
+        sftp = double('sftp')
+        sftp.should_receive(:upload!).with(local_path, '/upload/api/1000000000000_example.pdf').once
+
+        Net::SFTP.should_receive(:start).with('api.onlinebrief24.de', params[:login], :password => params[:password]) { sftp }
+
+        subject.upload!(filehandle).should eql('1000000000000_example.pdf')
+      end
+    end
+
+    describe 'with a filenamee' do
+      it 'should upload the letter with the correct remote filename' do
+        sftp = double('sftp')
+        sftp.should_receive(:upload!).with(local_path, '/upload/api/1000000000000_example.pdf').once
+
+        Net::SFTP.should_receive(:start).with('api.onlinebrief24.de', params[:login], :password => params[:password]) { sftp }
+
+        subject.upload!(local_path).should eql('1000000000000_example.pdf')
       end
     end
   end

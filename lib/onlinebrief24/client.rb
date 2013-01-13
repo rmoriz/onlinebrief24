@@ -10,12 +10,19 @@ module Onlinebrief24
       @server      = opts[:server]      || 'api.onlinebrief24.de'
       @port        = opts[:port]        || 22
       @upload_dir  = opts[:upload_dir]  || '/upload/api'
-      @fingerprint = opts[:fingerprint] || '5b:d1:29:17:cb:5e:17:b9:e2:29:4e:1e:aa:c7:d9:b2'
     end
 
+    def upload!(letter_or_file_handle_or_filename, options = {})
 
-    def upload!(letter)
-      raise ArgumentError unless letter.is_a?(Onlinebrief24::Letter)
+      if letter_or_file_handle_or_filename.is_a?(File) || letter_or_file_handle_or_filename.is_a?(String)
+        letter = Letter.new(letter_or_file_handle_or_filename)
+      elsif letter_or_file_handle_or_filename.is_a?(Onlinebrief24::Letter)
+        letter = letter_or_file_handle_or_filename
+      else
+        raise ArgumentError, letter_or_file_handle_or_filename.class
+      end
+
+      letter.valid?
 
       connection.upload!(letter.local_path, abs_remote_path(letter.remote_filename))
 

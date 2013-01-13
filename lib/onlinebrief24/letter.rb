@@ -2,7 +2,7 @@ module Onlinebrief24
   class InvalidLetterAttributeValueError < StandardError; end
 
   class Letter
-    attr_accessor :local_path, :local_filename, :color, :duplex, :envelope, :distribution, :registered, :cost_center
+    attr_accessor :local_path, :local_filename, :color, :duplex, :envelope, :distribution, :registered, :cost_center, :connection
 
     ENVELOPE_FORMATS     = [ :din_lang, :c4 ]
     DISTRIBUTION_FORMATS = [ :auto, :national, :international ]
@@ -78,8 +78,6 @@ module Onlinebrief24
 
     def valid?
       validate_settings
-    rescue
-      false
     end
 
     private
