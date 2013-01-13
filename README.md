@@ -1,5 +1,8 @@
 # Onlinebrief24
 
+[![Build Status](https://travis-ci.org/rmoriz/onlinebrief24.png)](https://travis-ci.org/rmoriz/onlinebrief24)
+
+
 TODO: Write a gem description
 
 ## Installation
