@@ -40,7 +40,7 @@ describe Onlinebrief24::Letter do
   describe 'settings' do
     let(:file_or_filename) { filename }
 
-    describe '#duplex?' do
+    describe '#duplex' do
       context 'default' do
         its(:duplex) { should be_false }
       end
@@ -54,7 +54,7 @@ describe Onlinebrief24::Letter do
       end
     end
 
-    describe '#color?' do
+    describe '#color' do
       context 'default' do
         its(:color) { should be_true }
       end
@@ -68,7 +68,7 @@ describe Onlinebrief24::Letter do
       end
     end
 
-    describe '#envelope?' do
+    describe '#envelope' do
       context 'default' do
         its(:envelope) { should eql(:din_lang) }
       end
@@ -86,7 +86,7 @@ describe Onlinebrief24::Letter do
       end
     end
 
-    describe '#distribution?' do
+    describe '#distribution' do
       context 'default' do
         its(:distribution) { should eql(:auto) }
       end
@@ -96,6 +96,28 @@ describe Onlinebrief24::Letter do
       end
       context 'invalid' do
         let(:options) { { :distribution => :warp } }
+        it { expect { subject }.to raise_error(Onlinebrief24::InvalidLetterAttributeValueError) }
+      end
+    end
+
+    describe '#registered' do
+      context 'default' do
+        its(:registered) { should eql(:none) }
+      end
+      context 'insertion' do
+        let(:options) { { :registered => :insertion } }
+        its(:registered) { should eql(:insertion) }
+      end
+      context 'standard' do
+        let(:options) { { :registered => :standard } }
+        its(:registered) { should eql(:standard) }
+      end
+      context 'personal' do
+        let(:options) { { :registered => :personal } }
+        its(:registered) { should eql(:personal) }
+      end
+      context 'invalid' do
+        let(:options) { { :registered => :identmyass } }
         it { expect { subject }.to raise_error(Onlinebrief24::InvalidLetterAttributeValueError) }
       end
     end
@@ -148,6 +170,8 @@ describe Onlinebrief24::Letter do
           its(:remote_filename) { should eql('1000300000000_example.pdf') }
         end
       end
+
     end
+
   end
 end

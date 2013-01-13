@@ -5,7 +5,7 @@ module Onlinebrief24
     attr_accessor :local_path, :local_filename, :color, :duplex, :envelope, :distribution, :registered, :cost_center
 
     ENVELOPE_FORMATS     = [ :din_lang, :c4 ]
-    DISTRIBUTION_FORMATS = [ :auto, :national, nil, :international ]
+    DISTRIBUTION_FORMATS = [ :auto, :national, :international ]
     REGISTERED_OPTIONS   = [ :none, :insertion, :standard, :personal ]
 
     def initialize(file_or_filename, options = {})
@@ -25,7 +25,7 @@ module Onlinebrief24
         :duplex       => false,
         :envelope     => :din_lang,
         :distribution => :auto,
-        :registered   => false
+        :registered   => :none
       }
     end
 
@@ -90,6 +90,10 @@ module Onlinebrief24
 
       unless DISTRIBUTION_FORMATS.include? @distribution
         raise InvalidLetterAttributeValueError, ':distribution value needs to be within: ' + DISTRIBUTION_FORMATS.join(',') + '- value was: ' + @distribution.inspect
+      end
+
+      unless REGISTERED_OPTIONS.include? @registered
+        raise InvalidLetterAttributeValueError, ':registered value needs to be within: ' + REGISTERED_OPTIONS.join(',') + '- value was: ' + @registered.inspect
       end
     end
   end
