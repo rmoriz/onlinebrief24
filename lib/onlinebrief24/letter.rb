@@ -76,11 +76,20 @@ module Onlinebrief24
       rf
     end
 
+    def valid?
+      validate_settings
+    rescue
+      false
+    end
+
     private
 
     def with_cost_center(filename)
-      filename.gsub!(/\.pdf/, "##{@cost_center}#.pdf") if @cost_center
-      filename
+      if @cost_center
+        filename.gsub(/\.pdf/, "##{@cost_center}#.pdf")
+      else
+        filename
+      end
     end
 
     def validate_settings
