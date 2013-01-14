@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ['roland@moriz.de']
   gem.description   = %q{A gem to interact with onlinebrief24.de (send PDFs as physical letters/snail mail)}
   gem.summary       = %q{A gem to interact with onlinebrief24.de (send PDFs as physical letters/snail mail)}
-  gem.homepage      = 'https://github.com/rmoriz'
+  gem.homepage      = 'https://github.com/rmoriz/onlinebrief24'
   gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
