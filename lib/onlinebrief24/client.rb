@@ -15,7 +15,7 @@ module Onlinebrief24
     def upload!(letter_or_file_handle_or_filename, options = {})
 
       if letter_or_file_handle_or_filename.is_a?(File) || letter_or_file_handle_or_filename.is_a?(String)
-        letter = Letter.new(letter_or_file_handle_or_filename)
+        letter = Letter.new(letter_or_file_handle_or_filename, options)
       elsif letter_or_file_handle_or_filename.is_a?(Onlinebrief24::Letter)
         letter = letter_or_file_handle_or_filename
       else
