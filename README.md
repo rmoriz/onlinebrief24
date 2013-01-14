@@ -26,15 +26,15 @@ oder global mit:
 
 #### Kurzform
 ```ruby
-  require 'onlinebrief24'
-  
-  c = Onlinebrief24::Client.new :login => 'email@example.com', :password => '123456'
-  
-  c.upload! '/tmp/filename1.pdf', :duplex     => true,       :color        => false
-  c.upload! '/tmp/filename2.pdf', :registered => :insertion, :envelope     => :c4
-  c.upload! '/tmp/filename3.pdf', :registered => :standard,  :distribution => :international
-  
-  c.disconnect
+require 'onlinebrief24'
+
+c = Onlinebrief24::Client.new :login => 'email@example.com', :password => '123456'
+
+c.upload! '/tmp/filename1.pdf', :duplex     => true,       :color        => false
+c.upload! '/tmp/filename2.pdf', :registered => :insertion, :envelope     => :c4
+c.upload! '/tmp/filename3.pdf', :registered => :standard,  :distribution => :international
+
+c.disconnect
 ```
 
 
