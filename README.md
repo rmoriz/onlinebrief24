@@ -4,7 +4,9 @@
 
 This gem is only interesting for users that use the German letter outbound service Onlinebrief24.de. This gem wraps the required workflow to upload a PDF to Onlinebrief24's servers. Onlinebrief24 then prints and mails the letters via snail mail. As this service is only available to German customers, the following documentation is available in German language only.
 
-## 
+## Requirements
+
+Ruby 1.9.2 oder neuer.
 
 ## Installation
 
@@ -20,9 +22,20 @@ oder global mit:
 
     $ gem install onlinebrief24
 
-## Beispiele
+## Anwendungs-Beispiele
 
-TODO
+#### Kurzform
+```ruby
+  require 'onlinebrief24'
+  
+  c = Onlinebrief24::Client.new :login => 'email@example.com', :password => '123456'
+  
+  c.upload! '/tmp/filename1.pdf', :duplex     => true,       :color        => false
+  c.upload! '/tmp/filename2.pdf', :registered => :insertion, :envelope     => :c4
+  c.upload! '/tmp/filename3.pdf', :registered => :standard,  :distribution => :international
+  
+  c.disconnect
+```
 
 
 ## Contributing
