@@ -30,7 +30,7 @@ $ gem install onlinebrief24
 
 ## Beispiele
 
-#### Kurzform
+### Kurzform
 ```ruby
 require 'onlinebrief24'
 
@@ -43,6 +43,21 @@ c.upload! '/tmp/filename3.pdf', :registered => :standard,  :distribution => :int
 c.disconnect
 ```
 
+### Hinweis
+
+* PDF-Dateien müssen unter Beachtung der Vorgaben von Onlinebrief24 erstellt und formatiert werden:
+  http://www.onlinebrief24.de/software/infodokumente.htm
+* Dieses gem benutzt die SFTP-Schnittstelle:
+  http://www.onlinebrief24.de/software/sftp-schnittstelle.htm
+
+### Ausprobieren / Keine Funktionsgarantie!
+
+Onlinebrief24 räumt jedem Neukunden ein Guthaben von 5 EUR ein. Es wird empfohlen die Benutzung dieses rubygems damit zu testen. Die vorhandenen Tests (RSpec) im ```spec```-Verzeichnis können dies nicht ersetzen!
+
+
+### Fehler? Probleme? Patches?
+
+Bitte Fehler, Probeme und Patches über Github Issues bzw Pull-Requests einreichen.
 
 ## Contributing
 
