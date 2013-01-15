@@ -57,8 +57,108 @@ end
 
 ### Optionen für Brief
 
-TODO
+<table width="100%">
+  <tr>
+    <th>Option</th>
+    <th>Werte</th>
+    <th>Vorbelegung</th>
+    <th>Beschreibung</th>
+  </tr>
+  <tr>
+    <td>
+      <strong>:color</strong>
+    </td>
+    <td>
+      <ul>
+        <li>true</li>
+        <li>false</li>
+      </ul>
+    </td>
+    <td>
+      false
+    </td>
+    <td>
+      Farbdruck ja/nein
+    </td>
+  </tr>
+    
+  <tr>
+    <td>
+      <strong>:duplex</strong>
+    </td>
+    <td>
+      <ul>
+        <li>true</li>
+        <li>false</li>
+      </ul>
+    </td>
+    <td>
+      false
+    </td>
+    <td>
+      Duplexdruck ja/nein
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>:envelope</strong>
+    </td>
+    <td>
+      <ul>
+        <li>:din_lang</li>
+        <li>:c4</li>
+      </ul>
+    </td>
+    <td>
+      :din_lang
+    </td>
+    <td>
+      Umschlagformat. DIN lang oder C4.
+    </td>
+  </tr>
 
+  <tr>
+    <td>
+      <strong>:distribution</strong>
+    </td>
+    <td>
+      <ul>
+        <li>:auto</li>
+        <li>:national/li>
+        <li>:international</li>
+      </ul>
+    </td>
+    <td>
+      :auto
+    </td>
+    <td>
+      Versandzone. Automatisch, National, International
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <strong>:registered</strong>
+    </td>
+    <td>
+      <ul>
+        <li>:none</li>
+        <li>:insertion</li>
+        <li>:standard</li>
+        <li>:personal</li>
+      </ul>
+    </td>
+    <td>
+      :none
+    </td>
+    <td>
+      Einschreiben: Nein, Einwurf-Einschreiben, Standard-Einschreiben, Einschreiben eigenhändig
+    </td>
+  </tr>
+  
+
+</table>
 
 
 ### Hinweis
