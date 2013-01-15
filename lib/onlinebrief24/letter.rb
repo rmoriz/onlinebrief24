@@ -21,7 +21,7 @@ module Onlinebrief24
 
     def defaults
       {
-        :color        => true,
+        :color        => false,
         :duplex       => false,
         :envelope     => :din_lang,
         :distribution => :auto,

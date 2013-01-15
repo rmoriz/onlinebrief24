@@ -56,7 +56,7 @@ describe Onlinebrief24::Letter do
 
     describe '#color' do
       context 'default' do
-        its(:color) { should be_true }
+        its(:color) { should be_false }
       end
       context 'disabled' do
         let(:options) { { :color => false } }
@@ -124,12 +124,12 @@ describe Onlinebrief24::Letter do
 
     describe 'remote_filename' do
       context 'default' do
-        its(:remote_filename) { should eql('1000000000000_example.pdf') }
+        its(:remote_filename) { should eql('0000000000000_example.pdf') }
       end
 
       context 'default with cost center' do
         let(:options) { { :cost_center => 'trash_and_law' } }
-        its(:remote_filename) { should eql('1000000000000_example#trash_and_law#.pdf') }
+        its(:remote_filename) { should eql('0000000000000_example#trash_and_law#.pdf') }
       end
 
       describe 'color duplex with c4 envelope' do
@@ -140,34 +140,34 @@ describe Onlinebrief24::Letter do
       context 'distribution' do
         describe 'auto' do
           let(:options) { { :distribution => :auto } }
-          its(:remote_filename) { should eql('1000000000000_example.pdf') }
+          its(:remote_filename) { should eql('0000000000000_example.pdf') }
         end
         describe 'national' do
           let(:options) { { :distribution => :national } }
-          its(:remote_filename) { should eql('1001000000000_example.pdf') }
+          its(:remote_filename) { should eql('0001000000000_example.pdf') }
         end
         describe 'international' do
           let(:options) { { :distribution => :international } }
-          its(:remote_filename) { should eql('1003000000000_example.pdf') }
+          its(:remote_filename) { should eql('0003000000000_example.pdf') }
         end
       end
 
       context 'registered (Einschreiben)' do
         describe 'none' do
-          let(:options) { { :registered => :none} }
-          its(:remote_filename) { should eql('1000000000000_example.pdf') }
+          let(:options) { { :registered => :none } }
+          its(:remote_filename) { should eql('0000000000000_example.pdf') }
         end
         describe 'insertion (Einwurf)' do
           let(:options) { { :registered => :insertion } }
-          its(:remote_filename) { should eql('1000100000000_example.pdf') }
+          its(:remote_filename) { should eql('0000100000000_example.pdf') }
         end
         describe 'standard' do
           let(:options) { { :registered => :standard } }
-          its(:remote_filename) { should eql('1000200000000_example.pdf') }
+          its(:remote_filename) { should eql('0000200000000_example.pdf') }
         end
         describe 'personal (eigenhaendig)' do
           let(:options) { { :registered => :personal } }
-          its(:remote_filename) { should eql('1000300000000_example.pdf') }
+          its(:remote_filename) { should eql('0000300000000_example.pdf') }
         end
       end
 
