@@ -43,6 +43,24 @@ c.upload! '/tmp/filename3.pdf', :registered => :standard,  :distribution => :int
 c.disconnect
 ```
 
+### Block
+
+```ruby
+require 'onlinebrief24'
+
+Onlinebrief24::Client.new(:login => 'email@example.com', :password => '123456') do |client|
+  client.upload! '/tmp/filename1.pdf', :duplex     => true,       :color        => false
+  client.upload! '/tmp/filename2.pdf', :registered => :insertion, :envelope     => :c4
+  client.upload! '/tmp/filename3.pdf', :registered => :standard,  :distribution => :international
+end
+```
+
+### Optionen für Brief
+
+TODO
+
+
+
 ### Hinweis
 
 * PDF-Dateien müssen unter Beachtung der Vorgaben von Onlinebrief24 erstellt und formatiert werden:

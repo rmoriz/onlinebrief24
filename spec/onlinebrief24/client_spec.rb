@@ -82,5 +82,28 @@ describe Onlinebrief24::Client do
       end
     end
   end
+
+  describe 'block syntax' do
+    let(:local_path) { File.expand_path('../../example_files/example.pdf', __FILE__) }
+
+    it 'should maintain the connection state' do
+      # re-used connection
+      connection = double('connection')
+      connection.should_receive(:open?).twice { true }
+      connection.should_receive(:upload!).exactly(3).times
+
+      # connect on first demand
+      Net::SFTP.should_receive(:start).once { connection }
+
+      # disconnect when block closes
+      Onlinebrief24::Client.any_instance.should_receive(:disconnect).once
+
+      Onlinebrief24::Client.new(params) do |client|
+        client.upload!(local_path, :color => true)
+        client.upload!(local_path, :color => true)
+        client.upload!(local_path, :color => true)
+      end
+    end
+  end
 end
 

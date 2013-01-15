@@ -4,12 +4,20 @@ module Onlinebrief24
   class Client
     attr_accessor :login, :password, :server, :port, :upload_dir, :fingerprint
 
-    def initialize(opts = {})
+    def initialize(opts = {}, &block)
       @login       = opts[:login]
       @password    = opts[:password]
       @server      = opts[:server]      || 'api.onlinebrief24.de'
       @port        = opts[:port]        || 22
       @upload_dir  = opts[:upload_dir]  || '/upload/api'
+
+      return unless block_given?
+
+      begin
+        yield self
+      ensure
+        disconnect
+      end
     end
 
     def upload!(letter_or_file_handle_or_filename, options = {})
@@ -37,6 +45,7 @@ module Onlinebrief24
     alias_method :connect, :connection
 
     def disconnect
+      puts "disconnecting"
       @connection.close if @connection and @connection.open?
     end
 
