@@ -170,7 +170,7 @@ end
 
 ### Ausprobieren / Keine Funktionsgarantie!
 
-Onlinebrief24 räumt jedem Neukunden ein Guthaben von 5 EUR ein. Es wird empfohlen die Benutzung dieses rubygems damit zu testen. Die vorhandenen Tests (RSpec) im ```spec```-Verzeichnis können dies nicht ersetzen!
+Onlinebrief24 räumt aktuell (Stand Januar 2013) jedem Neukunden ein Guthaben von 5 EUR ein. Es wird empfohlen die Benutzung dieses rubygems damit zu testen. Die vorhandenen Tests (RSpec) im ```spec```-Verzeichnis können dies nicht ersetzen!
 
 
 ### Fehler? Probleme? Patches?
