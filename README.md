@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rmoriz/onlinebrief24.png)](https://travis-ci.org/rmoriz/onlinebrief24)
 
-This gem is only interesting for users that use the German letter outbound service Onlinebrief24.de. This gem wraps the required workflow to upload a PDF to Onlinebrief24's servers. Onlinebrief24 then prints and mails the letters via snail mail. As this service is only available to German customers, the following documentation is available in German language only.
+This gem is only interesting for users that use the German letter outbound service <a href="http://www.onlinebrief24.de/">Onlinebrief24.de</a>. This gem wraps the required workflow to upload a PDF to Onlinebrief24's servers. Onlinebrief24 then prints and mails the letters via snail mail. As this service is only available to German customers, the following documentation is available in German language only.
 
 ## Voraussetzung
 
@@ -57,8 +57,108 @@ end
 
 ### Optionen für Brief
 
-TODO
+<table width="100%">
+  <tr>
+    <th>Option</th>
+    <th>Werte</th>
+    <th>Vorbelegung</th>
+    <th>Beschreibung</th>
+  </tr>
+  <tr>
+    <td>
+      <strong>:color</strong>
+    </td>
+    <td>
+      <ul>
+        <li>true</li>
+        <li>false</li>
+      </ul>
+    </td>
+    <td>
+      false
+    </td>
+    <td>
+      Farbdruck ja/nein
+    </td>
+  </tr>
+    
+  <tr>
+    <td>
+      <strong>:duplex</strong>
+    </td>
+    <td>
+      <ul>
+        <li>true</li>
+        <li>false</li>
+      </ul>
+    </td>
+    <td>
+      false
+    </td>
+    <td>
+      Duplexdruck ja/nein
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>:envelope</strong>
+    </td>
+    <td>
+      <ul>
+        <li>:din_lang</li>
+        <li>:c4</li>
+      </ul>
+    </td>
+    <td>
+      :din_lang
+    </td>
+    <td>
+      Umschlagformat. DIN lang oder C4.
+    </td>
+  </tr>
 
+  <tr>
+    <td>
+      <strong>:distribution</strong>
+    </td>
+    <td>
+      <ul>
+        <li>:auto</li>
+        <li>:national</li>
+        <li>:international</li>
+      </ul>
+    </td>
+    <td>
+      :auto
+    </td>
+    <td>
+      Versandzone. Automatisch, National, International
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <strong>:registered</strong>
+    </td>
+    <td>
+      <ul>
+        <li>:none</li>
+        <li>:insertion</li>
+        <li>:standard</li>
+        <li>:personal</li>
+      </ul>
+    </td>
+    <td>
+      :none
+    </td>
+    <td>
+      Einschreiben: Nein, Einwurf-Einschreiben, Standard-Einschreiben, Einschreiben eigenhändig
+    </td>
+  </tr>
+  
+
+</table>
 
 
 ### Hinweis
@@ -85,6 +185,9 @@ Bitte Fehler, Probeme und Patches über Github Issues bzw Pull-Requests einreich
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+## Hinweis
+
+Dies ist ein unabhängiges OpenSource-Projekt und kein offizielles Produkt von Onlinebrief24.de.
 
 ## Copyright
 
