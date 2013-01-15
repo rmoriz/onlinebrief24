@@ -125,7 +125,7 @@ end
     <td>
       <ul>
         <li>:auto</li>
-        <li>:national/li>
+        <li>:national</li>
         <li>:international</li>
       </ul>
     </td>
