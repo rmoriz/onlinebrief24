@@ -45,8 +45,7 @@ module Onlinebrief24
     alias_method :connect, :connection
 
     def disconnect
-      puts "disconnecting"
-      @connection.close if @connection and @connection.open?
+      @connection.session.close if @connection and @connection.open?
     end
 
     def abs_remote_path(filename)
