@@ -96,7 +96,7 @@ describe Onlinebrief24::Client do
       ssh_session = double('ssh-session')
       ssh_session.should_receive(:close).once
 
-      connection.stub_chain(:session).and_return(ssh_session)
+      connection.stub(:session).and_return(ssh_session)
 
       # connect on first demand
       Net::SFTP.should_receive(:start).once { connection }
