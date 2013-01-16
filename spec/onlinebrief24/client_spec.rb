@@ -89,14 +89,17 @@ describe Onlinebrief24::Client do
     it 'should maintain the connection state' do
       # re-used connection
       connection = double('connection')
-      connection.should_receive(:open?).twice { true }
+      connection.should_receive(:open?).exactly(3).times { true }
       connection.should_receive(:upload!).exactly(3).times
+
+      # disconnect when block closes
+      ssh_session = double('ssh-session')
+      ssh_session.should_receive(:close).once
+
+      connection.stub_chain(:session).and_return(ssh_session)
 
       # connect on first demand
       Net::SFTP.should_receive(:start).once { connection }
-
-      # disconnect when block closes
-      Onlinebrief24::Client.any_instance.should_receive(:disconnect).once
 
       Onlinebrief24::Client.new(params) do |client|
         client.upload!(local_path, :color => true)
