@@ -30,7 +30,6 @@ $ gem install onlinebrief24
 
 ## Beispiele
 
-### Kurzform
 ```ruby
 require 'onlinebrief24'
 
