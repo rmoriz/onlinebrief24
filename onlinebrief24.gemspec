@@ -6,6 +6,8 @@ require 'onlinebrief24/version'
 Gem::Specification.new do |gem|
   gem.name          = 'onlinebrief24'
   gem.version       = Onlinebrief24::VERSION
+  gem.required_ruby_version = '>= 1.9.2'
+   
   gem.authors       = ['Roland Moriz']
   gem.email         = ['roland@moriz.de']
   gem.description   = %q{A gem to interact with onlinebrief24.de (send PDFs as physical letters/snail mail)}
