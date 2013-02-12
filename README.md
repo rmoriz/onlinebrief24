@@ -1,6 +1,8 @@
 # Onlinebrief24
 
 [![Build Status](https://travis-ci.org/rmoriz/onlinebrief24.png)](https://travis-ci.org/rmoriz/onlinebrief24)
+<a href="https://gemnasium.com/rmoriz/onlinebrief24"><img src="https://gemnasium.com/rmoriz/onlinebrief24.png" height="13" /></a>
+<a href="https://codeclimate.com/github/rmoriz/onlinebrief24"><img src="https://codeclimate.com/github/rmoriz/onlinebrief24.png" height="13" /></a>
 
 This gem is only interesting for users that use the German letter outbound service <a href="http://www.onlinebrief24.de/">Onlinebrief24.de</a>. This gem wraps the required workflow to upload a PDF to Onlinebrief24's servers. Onlinebrief24 then prints and mails the letters via snail mail. As this service is only available to German customers, the following documentation is available in German language only.
 
@@ -192,4 +194,7 @@ Dies ist ein unabhängiges OpenSource-Projekt und kein offizielles Produkt von O
 
 Licensed under the MIT license.
 
-Copyright (C) 2013 Moriz GmbH, https://moriz.de/
+Copyright © 2013 [Roland Moriz](https://roland.io), [Moriz GmbH](https://moriz.de/)
+
+[![LinkedIn](http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png)](http://www.linkedin.com/in/rmoriz)
+
