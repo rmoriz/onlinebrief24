@@ -1,5 +1,6 @@
 # Onlinebrief24
 
+[![Gem Version](https://badge.fury.io/rb/onlinebrief24.png)](http://badge.fury.io/rb/onlinebrief24)
 [![Build Status](https://travis-ci.org/rmoriz/onlinebrief24.png)](https://travis-ci.org/rmoriz/onlinebrief24)
 <a href="https://gemnasium.com/rmoriz/onlinebrief24"><img src="https://gemnasium.com/rmoriz/onlinebrief24.png"/></a>
 <a href="https://codeclimate.com/github/rmoriz/onlinebrief24"><img src="https://codeclimate.com/github/rmoriz/onlinebrief24.png"/></a>
@@ -197,4 +198,5 @@ Licensed under the MIT license.
 Copyright © 2013 [Roland Moriz](https://roland.io), [Moriz GmbH](https://moriz.de/)
 
 [![LinkedIn](http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png)](http://www.linkedin.com/in/rmoriz)
+[![Twitter](http://i.imgur.com/1kYFHlu.png)](https://twitter.com/rmoriz)
 
